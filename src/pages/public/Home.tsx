@@ -8,7 +8,7 @@ export function Home() {
     <div className="overflow-x-hidden">
       <Navbar />
       <div className="min-h-screen grid grid-cols-2 pt-[10.28125rem]">
-        <div className="ml-16 mr-4">
+        <div className="ml-16 mr-4 w-[34rem]">
           <h1 className="text-5xl leading-snug text-blue-primary font-medium">
             Preparando Pessoas{' '}
             <span className="font-semibold">para o Futuro</span>
@@ -30,7 +30,7 @@ export function Home() {
                 <div>
                   <Button
                     type="submit"
-                    className="bg-blue-primary text-white  text-sm"
+                    className="bg-blue-primary text-white text-sm"
                   >
                     Entrar em contato
                   </Button>

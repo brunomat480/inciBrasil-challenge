@@ -6,6 +6,7 @@ export default {
       colors: {
         'blue-primary': '#091C7A',
         'blue-secondary': '#2F50EE',
+        background: '#F8F9FA',
         yellow: '#FFCD85',
       },
 

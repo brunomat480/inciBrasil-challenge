@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import logoSvg from '../assets/logo.svg';
 import { Button } from './Button';
 
@@ -29,7 +31,11 @@ export function Navbar() {
           </Button>
         </div>
         <div>
-          <Button className="bg-yellow text-gray-400">Entrar</Button>
+          <Link to="/sign-in">
+            <Button type="button" className="bg-yellow text-gray-400">
+              Entrar
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
