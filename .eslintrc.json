@@ -6,18 +6,31 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2022,
     "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint",
-    "react"
+    "react",
+    "simple-import-sort"
   ],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "semi": true,
+        "endOfLine": "auto"
+      }
+    ],
     "indent": [
       "error",
       2
@@ -33,6 +46,14 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "react/react-in-jsx-scope": "off",
+    "no-undef": "off",
+    "simple-import-sort/imports": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
