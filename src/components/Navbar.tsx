@@ -3,7 +3,7 @@ import { Button } from './Button';
 
 export function Navbar() {
   return (
-    <nav className="bg-transparent flex items-center justify-between py-7 px-[7.4375rem] absolute left-0 right-0">
+    <nav className="bg-transparent flex items-center justify-between py-7 px-16 absolute left-0 right-0">
       <div className="flex items-center gap-6">
         <img src={logoSvg} alt="Logo da InciBrasil" />
 
