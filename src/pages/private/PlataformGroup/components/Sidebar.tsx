@@ -22,43 +22,43 @@ export function Sidebar() {
       </button>
 
       <div className="border-b-2 border-gray-200/75">
-        <ul className="text-sm font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4">
-          <li className="py-2 mx-[0.125rem]">
+        <ul className="text-xs font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={homeSvg} alt="" />
               Início
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={studentsSvg} alt="" />
               Alunos
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={paymentSvg} alt="" />
               Pagamentos
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={coursesSvg} alt="" />
               Cursos
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={faqSvg} alt="" />
               Central de Ajuda
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={premiumSvg} alt="" />
               Certificado impresso
@@ -70,22 +70,22 @@ export function Sidebar() {
       <div className="mt-6 border-b-2 border-gray-200/75">
         <span className="text-sm font-medium">Ferramentas</span>
 
-        <ul className="text-sm font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4 mt-4">
-          <li className="py-2 mx-[0.125rem]">
+        <ul className="text-xs font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4 mt-4">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={resourcesSvg} alt="" />
               Recursos
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={analyticsSvg} alt="" />
               Analytics
             </a>
           </li>
 
-          <li className="py-2 mx-[0.125rem]">
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer">
             <a href="#" className="flex items-center gap-2">
               <img src={whatsPushSvg} alt="" />
               Whats Push
@@ -96,14 +96,17 @@ export function Sidebar() {
 
       <div className="mb-52">
         <div className="space-y-4 mt-6">
-          <a href="" className="flex items-center gap-2 py-2 mx-[0.125rem]">
+          <a
+            href=""
+            className="flex items-center gap-2 py-2 mx-[0.125rem] px-2 rounded hover:bg-gray-300/40 cursor-pointer"
+          >
             <img src={configSvg} alt="" />
             Configuração
           </a>
 
           <button
             type="button"
-            className="flex items-center gap-2 py-2 mx-[0.125rem]"
+            className="flex items-center gap-2 py-2 mx-[0.125rem] px-2 rounded hover:bg-gray-300/40 cursor-pointer w-full"
           >
             <img src={logoutSvg} alt="" />
             Sair
