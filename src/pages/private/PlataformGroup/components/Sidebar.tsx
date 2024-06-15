@@ -33,7 +33,7 @@ export function Sidebar() {
         <img src={arrowSvg} alt="" />
       </button>
 
-      <div className="border-b-2 border-gray-200/75">
+      <div className="border-b-2 border-gray-200/75 overflow-x-hidden">
         <ul className="text-xs font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4">
           <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex">
             <a href="#" className="flex items-center gap-2">

@@ -3,7 +3,8 @@ import { api } from '../libs/axios';
 interface GetPlataformsResponde {
   id: number;
   name: string;
-  imgUrl: string;
+  imageUrl: string;
+  url: string;
 }
 
 export async function getPlataforms() {

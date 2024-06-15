@@ -1,43 +1,38 @@
 import { useEffect, useState } from 'react';
 
 import { getPlataforms } from '../../../api/get-plataforms';
+import { getTools } from '../../../api/get-tools';
 import { Card } from '../../../components/Card';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 
-const toolList = [
-  {
-    name: 'E-mail',
-    image: '/tool/gmail-logo.svg',
-  },
-  {
-    name: 'Jira',
-    image: '/tool/jira-logo.svg',
-  },
-  {
-    name: 'Asana',
-    image: '/tool/sana-logo.svg',
-  },
-  {
-    name: 'Google Drive',
-    image: '/tool/google-drive-logo.svg',
-  },
-];
-
 interface Plataform {
   id: number;
   name: string;
-  imgUrl: string;
+  imageUrl: string;
+  url: string;
+}
+
+interface Tool {
+  id: number;
+  name: string;
+  imageUrl: string;
+  url: string;
 }
 
 export function PlataformGroup() {
   const [plataforms, setPlataforms] = useState<Plataform[]>([]);
+  const [tools, setTools] = useState<Tool[]>([]);
 
   useEffect(() => {
     async function fetch() {
-      const plataformsAll = await getPlataforms();
+      const [plataformsAll, toolsAll] = await Promise.all([
+        getPlataforms(),
+        getTools(),
+      ]);
 
       setPlataforms(plataformsAll);
+      setTools(toolsAll);
     }
 
     fetch();
@@ -64,7 +59,8 @@ export function PlataformGroup() {
                 <Card
                   key={plataform.id}
                   name={plataform.name}
-                  image={plataform.imgUrl}
+                  image={plataform.imageUrl}
+                  url={plataform.url}
                 />
               ))}
             </div>
@@ -81,8 +77,13 @@ export function PlataformGroup() {
             </header>
 
             <div className="mt-4 mb-[4.5rem] flex flex-wrap gap-x-4 gap-y-2">
-              {toolList.map((tool) => (
-                <Card key={tool.name} name={tool.name} image={tool.image} />
+              {tools.map((tool) => (
+                <Card
+                  key={tool.name}
+                  name={tool.name}
+                  image={tool.imageUrl}
+                  url={tool.url}
+                />
               ))}
             </div>
           </section>

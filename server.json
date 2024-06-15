@@ -3,32 +3,64 @@
       {
         "id": 1,
         "name": "SóEducador",
-        "imgUrl": "/courses/soeducador-logo.svg"
+        "imageUrl": "/courses/soeducador-logo.svg",
+        "url": "https://soeducador.com.br/"
       },
       {
         "id": 2,
         "name": "Estetus",
-        "imgUrl": "/courses/stetus-logo.svg"
+        "imageUrl": "/courses/stetus-logo.svg",
+        "url": "https://estetus.com.br/"
       },
       {
         "id": 3,
         "name": "Eduhot",
-        "imgUrl": "/courses/eduhot-logo.svg"
+        "imageUrl": "/courses/eduhot-logo.svg",
+        "url": "https://eduhot.com.br/"
       },
       {
         "id": 4,
         "name": "Edooker",
-        "imgUrl": "/courses/edooker-logo.svg"
+        "imageUrl": "/courses/edooker-logo.svg",
+        "url": "https://edooker.com.br/"
       },
       {
         "id": 5,
         "name": "EducDay",
-        "imgUrl": "/courses/educday-logo.svg"
+        "imageUrl": "/courses/educday-logo.svg",
+        "url": "https://educday.com.br/"
       },
       {
         "id": 6,
         "name": "Zamply",
-        "imgUrl": "/courses/zamply-logo.svg"
+        "imageUrl": "/courses/zamply-logo.svg",
+        "url": "#"
+      }
+    ],
+    "tools": [
+      {
+        "id": 1,
+        "name": "E-mail",
+        "imageUrl": "/tool/gmail-logo.svg",
+        "url": "https://mail.google.com/"
+      },
+      {
+        "id": 2,
+        "name": "Jira",
+        "imageUrl": "/tool/jira-logo.svg",
+        "url": "https://www.atlassian.com/br/software/jira"
+      },
+      {
+        "id": 3,
+        "name": "Asana",
+        "imageUrl": "/tool/sana-logo.svg",
+        "url": "https://asana.com/pt"
+      },
+      {
+        "id": 4,
+        "name": "Google Drive",
+        "imageUrl": "/tool/google-drive-logo.svg",
+        "url": "https://drive.google.com/"
       }
     ]
   }
