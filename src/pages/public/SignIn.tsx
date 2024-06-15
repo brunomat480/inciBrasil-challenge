@@ -43,12 +43,12 @@ export function SignIn() {
   const isSubmitDesabled = emailInput && passwordInput;
 
   return (
-    <div className="pb-14 bg-background">
+    <div className="mx-auto container">
       <div className="py-6 flex justify-center border-b-2">
         <img src={logoSvg} alt="" />
       </div>
       {isSubmitting ? (
-        <div className="flex items-center justify-center mt-36 h-60">
+        <div className="flex items-center justify-center mt-36">
           <div className="bg-white py-8 w-[11.5625rem] flex flex-col gap-6 rounded-[10px]">
             <img src={spinnerSvg} alt="" className="animate-spin mx-auto" />
             <span className="font-medium text-center">Fazendo login...</span>
@@ -82,7 +82,7 @@ export function SignIn() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label htmlFor="">senha</label>
+                  <label htmlFor="">Senha</label>
                   <Input
                     nameField="password"
                     type="password"
