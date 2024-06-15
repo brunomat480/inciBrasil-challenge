@@ -1,29 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import { getPlataforms } from '../../../api/get-plataforms';
-import { getTools } from '../../../api/get-tools';
+import { Plataform } from '../../../@types/plataforms/Plataform';
+import { Tool } from '../../../@types/tools/Tools';
 import { Card } from '../../../components/Card';
+import { getPlataforms } from '../../../services/get-plataforms';
+import { getTools } from '../../../services/get-tools';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
-
-interface Plataform {
-  id: number;
-  name: string;
-  imageUrl: string;
-  url: string;
-}
-
-interface Tool {
-  id: number;
-  name: string;
-  imageUrl: string;
-  url: string;
-}
 
 export function PlataformGroup() {
   const [plataforms, setPlataforms] = useState<Plataform[]>([]);
   const [tools, setTools] = useState<Tool[]>([]);
+
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     async function fetch() {
@@ -39,11 +29,19 @@ export function PlataformGroup() {
     fetch();
   }, []);
 
+  const filteredPlataform = useMemo(
+    () =>
+      plataforms.filter((contact) =>
+        contact.name.toLowerCase().startsWith(filter.toLowerCase()),
+      ),
+    [plataforms, filter],
+  );
+
   return (
     <div className="bg-background h-screen">
       <Helmet title="Plataformas" />
 
-      <Navbar />
+      <Navbar setFilter={setFilter} />
       <main className="flex">
         <Sidebar />
         <div className="mx-[4.5rem] mt-4">
@@ -58,7 +56,7 @@ export function PlataformGroup() {
             </header>
 
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-              {plataforms.map((plataform) => (
+              {filteredPlataform.map((plataform) => (
                 <Card
                   key={plataform.id}
                   name={plataform.name}

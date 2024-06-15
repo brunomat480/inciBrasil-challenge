@@ -9,6 +9,7 @@ import secondaryLogoSvg from '../../assets/logo-secondary.svg';
 import spinnerSvg from '../../assets/spinner.svg';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import delay from '../../utils/delay';
 
 const schemaSignInForm = z.object({
   email: z.string().min(1, 'Informe o e-mail').email('E-mail inválido'),
@@ -36,7 +37,7 @@ export function SignIn() {
   } = methods;
 
   async function handleSignIn({ email, password }: SignInForm) {
-    await new Promise((resolver) => setTimeout(resolver, 2000));
+    await delay(2000);
 
     console.log({ email, password });
 

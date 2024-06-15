@@ -28,9 +28,14 @@ export function Sidebar() {
       <button
         type="button"
         onClick={handleExpandMenu}
-        className="border-blue-secondary border-[1px] size-6 flex items-center justify-center rounded-full absolute -right-3 data-[expand-menu=true]:-rotate-180 transition-transform duration-500 ease-in-out"
+        className="border-blue-secondary border-[1px] size-6 flex items-center justify-center rounded-full absolute -right-3"
       >
-        <img src={arrowSvg} alt="" />
+        <img
+          data-expand-menu={expandMenu}
+          src={arrowSvg}
+          alt=""
+          className="data-[expand-menu=true]:-rotate-180 transition-transform duration-500 ease-in-out"
+        />
       </button>
 
       <div className="border-b-2 border-gray-200/75 overflow-x-hidden">
