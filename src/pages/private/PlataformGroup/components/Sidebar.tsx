@@ -27,99 +27,80 @@ export function Sidebar() {
     >
       <button
         type="button"
-        data-expand-menu={expandMenu}
         onClick={handleExpandMenu}
         className="border-blue-secondary border-[1px] size-6 flex items-center justify-center rounded-full absolute -right-3 data-[expand-menu=true]:-rotate-180 transition-transform duration-500 ease-in-out"
       >
         <img src={arrowSvg} alt="" />
       </button>
 
-      <div className="border-b-2 border-gray-200/75 overflow-x-hidden">
+      <div className="border-b-2 border-gray-200/75">
         <ul className="text-xs font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4">
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex">
             <a href="#" className="flex items-center gap-2">
               <img src={homeSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Início
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={studentsSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Alunos
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={paymentSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Pagamentos
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={coursesSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Cursos
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={faqSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Central de Ajuda
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={premiumSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Certificado impresso
               </span>
@@ -136,45 +117,36 @@ export function Sidebar() {
         </span>
 
         <ul className="text-xs font-medium mb-8 text-gray-700 flex flex-col justify-center gap-4 mt-4">
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={resourcesSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Recursos
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={analyticsSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Analytics
               </span>
             </a>
           </li>
 
-          <li
-            data-expand-menu={!expandMenu}
-            className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center"
-          >
+          <li className="py-2 px-2 rounded hover:bg-gray-300/40 cursor-pointer flex data-[expand-menu=true]:justify-center">
             <a href="#" className="flex items-center gap-2">
               <img src={whatsPushSvg} alt="" />
               <span
                 data-expand-menu={!expandMenu}
-                className="data-[expand-menu=true]:hidden"
+                className="data-[expand-menu=true]:hidden whitespace-nowrap"
               >
                 Whats Push
               </span>
@@ -186,14 +158,13 @@ export function Sidebar() {
       <div className="overflow-x-hidden">
         <div className="space-y-4 mt-6">
           <a
-            data-expand-menu={!expandMenu}
             href=""
             className="flex items-center gap-2 py-2 mx-[0.125rem] px-2 rounded hover:bg-gray-300/40 cursor-pointer"
           >
             <img src={configSvg} alt="" />
             <span
               data-expand-menu={!expandMenu}
-              className="data-[expand-menu=true]:hidden"
+              className="data-[expand-menu=true]:hidden whitespace-nowrap"
             >
               Configuração
             </span>
@@ -206,7 +177,7 @@ export function Sidebar() {
             <img src={logoutSvg} alt="" />
             <span
               data-expand-menu={!expandMenu}
-              className="data-[expand-menu=true]:hidden"
+              className="data-[expand-menu=true]:hidden whitespace-nowrap"
             >
               Sair
             </span>

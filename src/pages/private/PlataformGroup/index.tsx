@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+
+import { getPlataforms } from '../../../api/get-plataforms';
 import { Card } from '../../../components/Card';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
@@ -21,7 +24,25 @@ const toolList = [
   },
 ];
 
+interface Plataform {
+  id: number;
+  name: string;
+  imgUrl: string;
+}
+
 export function PlataformGroup() {
+  const [plataforms, setPlataforms] = useState<Plataform[]>([]);
+
+  useEffect(() => {
+    async function fetch() {
+      const plataformsAll = await getPlataforms();
+
+      setPlataforms(plataformsAll);
+    }
+
+    fetch();
+  }, []);
+
   return (
     <div className="bg-background h-screen">
       <Navbar />
@@ -39,8 +60,12 @@ export function PlataformGroup() {
             </header>
 
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <Card key={i} />
+              {plataforms.map((plataform) => (
+                <Card
+                  key={plataform.id}
+                  name={plataform.name}
+                  image={plataform.imgUrl}
+                />
               ))}
             </div>
           </section>

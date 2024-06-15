@@ -1,0 +1,34 @@
+  {
+    "plataforms": [
+      {
+        "id": 1,
+        "name": "SóEducador",
+        "imgUrl": "/courses/soeducador-logo.svg"
+      },
+      {
+        "id": 2,
+        "name": "Estetus",
+        "imgUrl": "/courses/stetus-logo.svg"
+      },
+      {
+        "id": 3,
+        "name": "Eduhot",
+        "imgUrl": "/courses/eduhot-logo.svg"
+      },
+      {
+        "id": 4,
+        "name": "Edooker",
+        "imgUrl": "/courses/edooker-logo.svg"
+      },
+      {
+        "id": 5,
+        "name": "EducDay",
+        "imgUrl": "/courses/educday-logo.svg"
+      },
+      {
+        "id": 6,
+        "name": "Zamply",
+        "imgUrl": "/courses/zamply-logo.svg"
+      }
+    ]
+  }

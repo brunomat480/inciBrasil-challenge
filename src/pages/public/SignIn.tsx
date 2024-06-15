@@ -91,14 +91,20 @@ export function SignIn() {
                   />
                 </div>
               </div>
-              <a href="" className="text-xs font-medium text-gray-700 mt-2">
+              <a
+                href=""
+                className="text-xs font-medium text-gray-700 mt-2 hover:underline"
+              >
                 Esqueci a senha
               </a>
 
               <p className="font-medium text-sm mt-12">
                 Não está no seu computador? Use o modo visitante para fazer o
                 login com privacidade. <br />
-                <a href="" className="underline text-blue-500">
+                <a
+                  href=""
+                  className="underline text-blue-500 hover:text-blue-primary"
+                >
                   Saiba mais
                 </a>
               </p>

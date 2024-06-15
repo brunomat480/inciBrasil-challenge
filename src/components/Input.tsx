@@ -16,7 +16,6 @@ export function Input({ nameField = '', ...rest }: InputProps) {
     <>
       <input
         {...rest}
-        type="text"
         className={twMerge(
           'h-10 border-[0.1px] border-gray-300 rounded pl-2 outline-none',
           error?.message ? 'border-rose-500 ' : 'focus:border-blue-primary',
