@@ -4,10 +4,10 @@ import configSvg from '../../../../assets/config.svg';
 import faqSvg from '../../../../assets/faq.svg';
 import homeSvg from '../../../../assets/home.svg';
 import logoutSvg from '../../../../assets/logout.svg';
-import paymentSvg from '../../../../assets/payment.svg';
 import premiumSvg from '../../../../assets/premium.svg';
 import resourcesSvg from '../../../../assets/resources.svg';
 import coursesSvg from '../../../../assets/variants/courses.svg';
+import paymentSvg from '../../../../assets/variants/payment.svg';
 import studentsSvg from '../../../../assets/variants/students.svg';
 import whatsPushSvg from '../../../../assets/whats-push.svg';
 

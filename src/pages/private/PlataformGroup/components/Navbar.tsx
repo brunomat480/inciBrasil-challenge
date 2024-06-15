@@ -15,7 +15,7 @@ export function Navbar() {
           <span className="text-white font-medium">
             Suas funções mais utilizadas:
           </span>
-          <ul className="flex items-center gap-6 text-white font-semibold">
+          <ul className="flex items-center gap-6 text-white font-semibold text-sm">
             <li>
               <a href="" className="flex items-center gap-[2px]">
                 <img src={analyticsSvg} alt="" />
