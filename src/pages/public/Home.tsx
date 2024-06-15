@@ -1,9 +1,47 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
+
 import rangeSvg from '../../assets/range.svg';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Navbar } from '../../components/Navbar';
 
+const schemaContactForm = z.object({
+  email: z.string().min(1, 'Informe o e-mail').email('E-mail inválido'),
+});
+
+type ContactForm = z.infer<typeof schemaContactForm>;
+
 export function Home() {
+  const methods = useForm<ContactForm>({
+    defaultValues: {
+      email: '',
+    },
+    resolver: zodResolver(schemaContactForm),
+    mode: 'onChange',
+  });
+
+  const {
+    handleSubmit,
+    reset,
+    watch,
+    formState: { isSubmitting },
+  } = methods;
+
+  async function handleSendEmail({ email }: ContactForm) {
+    await new Promise((resolver) => setTimeout(resolver, 2000));
+
+    console.log({ email });
+
+    reset({
+      email: '',
+    });
+  }
+
+  const emailInput = watch('email');
+  const isSubmitDesabled = !emailInput;
+
   return (
     <div className="overflow-x-hidden">
       <Navbar />
@@ -21,21 +59,30 @@ export function Home() {
             </p>
 
             <div className="mt-4">
-              <form className="flex items-center gap-2">
-                {/* <Input
-                  className="flex flex-1 placeholder:text-gray-700 placeholder:font-medium"
-                  placeholder="seuemail@gmail.com"
-                /> */}
+              <FormProvider {...methods}>
+                <form
+                  onSubmit={handleSubmit(handleSendEmail)}
+                  className="flex items-start gap-2"
+                >
+                  <div className="flex flex-1 flex-col">
+                    <Input
+                      nameField="email"
+                      className="w-full placeholder:text-gray-700 placeholder:font-medium"
+                      placeholder="seuemail@gmail.com"
+                    />
+                  </div>
 
-                <div>
-                  <Button
-                    type="submit"
-                    className="bg-blue-primary text-white text-sm"
-                  >
-                    Entrar em contato
-                  </Button>
-                </div>
-              </form>
+                  <div>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitDesabled || isSubmitting}
+                      className="bg-blue-primary text-white text-sm"
+                    >
+                      Entrar em contato
+                    </Button>
+                  </div>
+                </form>
+              </FormProvider>
 
               <div className="flex items-center gap-2">
                 <img src={rangeSvg} alt="" />

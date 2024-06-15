@@ -27,18 +27,19 @@ export function SignIn() {
 
   const {
     handleSubmit,
-    reset,
+    watch,
     formState: { isSubmitting },
   } = methods;
 
-  function handleSignIn({ email, password }: SignInForm) {
-    console.log({ email, password });
+  async function handleSignIn({ email, password }: SignInForm) {
+    await new Promise((resolver) => setTimeout(resolver, 2000));
 
-    reset({
-      email: '',
-      password: '',
-    });
+    console.log({ email, password });
   }
+
+  const emailInput = watch('email');
+  const passwordInput = watch('password');
+  const isSubmitDesabled = emailInput && passwordInput;
 
   return (
     <div className=" pb-14 bg-background">
@@ -96,7 +97,10 @@ export function SignIn() {
               </p>
 
               <div className="mt-2">
-                <Button className="bg-blue-primary text-white text-sm">
+                <Button
+                  disabled={!isSubmitDesabled || isSubmitting}
+                  className="bg-blue-primary text-white text-sm"
+                >
                   Entrar
                 </Button>
               </div>
