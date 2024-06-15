@@ -5,6 +5,7 @@ import { z } from 'zod';
 
 import logoSvg from '../../assets/logo.svg';
 import secondaryLogoSvg from '../../assets/logo-secondary.svg';
+import spinnerSvg from '../../assets/spinner.svg';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
@@ -42,13 +43,19 @@ export function SignIn() {
   const isSubmitDesabled = emailInput && passwordInput;
 
   return (
-    <div className=" pb-14 bg-background">
+    <div className="pb-14 bg-background">
       <div className="py-6 flex justify-center border-b-2">
         <img src={logoSvg} alt="" />
       </div>
-
-      <div className="flex flex-col justify-center items-center pt-[5.74625rem]">
-        <div className="w-[26.5rem] bg-white py-8 px-10 rounded-2xl">
+      {isSubmitting ? (
+        <div className="flex items-center justify-center mt-36 h-60">
+          <div className="bg-white py-8 w-[11.5625rem] flex flex-col gap-6 rounded-[10px]">
+            <img src={spinnerSvg} alt="" className="animate-spin mx-auto" />
+            <span className="font-medium text-center">Fazendo login...</span>
+          </div>
+        </div>
+      ) : (
+        <div className="w-[26.5rem] bg-white py-8 px-10 rounded-2xl mx-auto mt-[7.7125rem]">
           <div className="flex items-center w-full justify-between border-b-gray-300 border-b-[0.5px] pb-6">
             <div className="justify-between flex flex-col">
               <span className="font-semibold text-lg w-full">Fazer login</span>
@@ -113,7 +120,9 @@ export function SignIn() {
             </form>
           </FormProvider>
         </div>
-      </div>
+      )}
+
+      <div className="flex flex-col justify-center items-center pt-[5.74625rem]"></div>
     </div>
   );
 }
