@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
 
@@ -9,16 +9,36 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 const schemaSignInForm = z.object({
-  email: z.string(),
-  password: z.string(),
+  email: z.string().min(1, 'Informe o e-mail').email('E-mail inválido'),
+  password: z.string().min(1, 'Informe a senha'),
 });
 
 type SignInForm = z.infer<typeof schemaSignInForm>;
 
 export function SignIn() {
-  const { handleSubmit } = useForm<SignInForm>({
+  const methods = useForm<SignInForm>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
     resolver: zodResolver(schemaSignInForm),
+    mode: 'onChange',
   });
+
+  const {
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = methods;
+
+  function handleSignIn({ email, password }: SignInForm) {
+    console.log({ email, password });
+
+    reset({
+      email: '',
+      password: '',
+    });
+  }
 
   return (
     <div className=" pb-14 bg-background">
@@ -36,40 +56,58 @@ export function SignIn() {
             <img src={secondaryLogoSvg} alt="Logo da InciBrasil" />
           </div>
 
-          <form noValidate className="mt-8">
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col">
-                <label htmlFor="email">E-mail ou telefone</label>
-                <Input type="email" placeholder="email@gmail.com" id="email" />
-              </div>
-
-              <div className="flex flex-col">
-                <label htmlFor="">senha</label>
-                <Input type="password" placeholder="*********" id="password" />
-              </div>
-            </div>
-            <a href="" className="text-xs font-medium text-gray-700 mt-2">
-              Esqueci a senha
-            </a>
-
-            <p className="font-medium text-sm mt-12">
-              Não está no seu computador? Use o modo visitante para fazer o
-              login com privacidade. <br />
-              <a href="" className="underline text-blue-500">
-                Saiba mais
-              </a>
-            </p>
-
-            <div className="mt-2">
-              <Button disabled>Entrar</Button>
-            </div>
-            <Link
-              to="/"
-              className="flex justify-center text-blue-primary font-semibold text-sm mt-[0.6475rem]"
+          <FormProvider {...methods}>
+            <form
+              onSubmit={handleSubmit(handleSignIn)}
+              noValidate
+              className="mt-8"
             >
-              Criar conta
-            </Link>
-          </form>
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col">
+                  <label htmlFor="email">E-mail ou telefone</label>
+                  <Input
+                    nameField="email"
+                    type="email"
+                    placeholder="email@gmail.com"
+                    id="email"
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="">senha</label>
+                  <Input
+                    nameField="password"
+                    type="password"
+                    placeholder="*********"
+                    id="password"
+                  />
+                </div>
+              </div>
+              <a href="" className="text-xs font-medium text-gray-700 mt-2">
+                Esqueci a senha
+              </a>
+
+              <p className="font-medium text-sm mt-12">
+                Não está no seu computador? Use o modo visitante para fazer o
+                login com privacidade. <br />
+                <a href="" className="underline text-blue-500">
+                  Saiba mais
+                </a>
+              </p>
+
+              <div className="mt-2">
+                <Button className="bg-blue-primary text-white text-sm">
+                  Entrar
+                </Button>
+              </div>
+              <Link
+                to="/"
+                className="flex justify-center text-blue-primary font-semibold text-sm mt-[0.6475rem]"
+              >
+                Criar conta
+              </Link>
+            </form>
+          </FormProvider>
         </div>
       </div>
     </div>

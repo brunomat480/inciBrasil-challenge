@@ -22,10 +22,10 @@ export function Home() {
 
             <div className="mt-4">
               <form className="flex items-center gap-2">
-                <Input
+                {/* <Input
                   className="flex flex-1 placeholder:text-gray-700 placeholder:font-medium"
                   placeholder="seuemail@gmail.com"
-                />
+                /> */}
 
                 <div>
                   <Button
