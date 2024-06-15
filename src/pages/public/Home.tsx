@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Helmet } from 'react-helmet-async';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -44,6 +45,7 @@ export function Home() {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet title="Home" />
       <Navbar />
       <div className="min-h-screen grid grid-cols-2 pt-[10.28125rem]">
         <div className="ml-16 mr-4 w-[34rem]">

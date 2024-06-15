@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 import { getPlataforms } from '../../../api/get-plataforms';
 import { getTools } from '../../../api/get-tools';
@@ -40,6 +41,8 @@ export function PlataformGroup() {
 
   return (
     <div className="bg-background h-screen">
+      <Helmet title="Plataformas" />
+
       <Navbar />
       <main className="flex">
         <Sidebar />

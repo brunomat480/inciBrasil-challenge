@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Helmet } from 'react-helmet-async';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 import logoSvg from '../../assets/logo.svg';
@@ -17,6 +18,8 @@ const schemaSignInForm = z.object({
 type SignInForm = z.infer<typeof schemaSignInForm>;
 
 export function SignIn() {
+  const navigate = useNavigate();
+
   const methods = useForm<SignInForm>({
     defaultValues: {
       email: '',
@@ -36,6 +39,8 @@ export function SignIn() {
     await new Promise((resolver) => setTimeout(resolver, 2000));
 
     console.log({ email, password });
+
+    navigate('/plataforms');
   }
 
   const emailInput = watch('email');
@@ -44,6 +49,8 @@ export function SignIn() {
 
   return (
     <div className="mx-auto container">
+      <Helmet title="Entrar" />
+
       <div className="py-6 flex justify-center border-b-2">
         <img src={logoSvg} alt="" />
       </div>
