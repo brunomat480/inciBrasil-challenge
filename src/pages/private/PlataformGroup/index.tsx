@@ -9,15 +9,15 @@ const toolList = [
   },
   {
     name: 'Jira',
-    image: '/tool/google-drive-logo.svg',
-  },
-  {
-    name: 'Asana',
     image: '/tool/jira-logo.svg',
   },
   {
-    name: 'Google Drive',
+    name: 'Asana',
     image: '/tool/sana-logo.svg',
+  },
+  {
+    name: 'Google Drive',
+    image: '/tool/google-drive-logo.svg',
   },
 ];
 
