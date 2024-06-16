@@ -1,47 +1,47 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import { Plataform } from '../../../@types/plataforms/Plataform';
+import { Platform } from '../../../@types/platforms/Platform';
 import { Tool } from '../../../@types/tools/Tools';
 import { Card } from '../../../components/Card';
-import { getPlataforms } from '../../../services/get-plataforms';
-import { getTools } from '../../../services/get-tools';
+import { getPlatforms } from '../../../services/plataforms/get-platforms';
+import { getTools } from '../../../services/tools/get-tools';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 
-export function PlataformGroup() {
-  const [plataforms, setPlataforms] = useState<Plataform[]>([]);
+export function PlatformGroup() {
+  const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [tools, setTools] = useState<Tool[]>([]);
 
-  const [filter, setFilter] = useState('');
+  const [searchPlatform, setSearchPlatform] = useState('');
 
   useEffect(() => {
     async function fetch() {
-      const [plataformsAll, toolsAll] = await Promise.all([
-        getPlataforms(),
+      const [platformsAll, toolsAll] = await Promise.all([
+        getPlatforms(),
         getTools(),
       ]);
 
-      setPlataforms(plataformsAll);
+      setPlatforms(platformsAll);
       setTools(toolsAll);
     }
 
     fetch();
   }, []);
 
-  const filteredPlataform = useMemo(
+  const filteredPlatform = useMemo(
     () =>
-      plataforms.filter((contact) =>
-        contact.name.toLowerCase().startsWith(filter.toLowerCase()),
+      platforms.filter((plataform) =>
+        plataform.name.toLowerCase().startsWith(searchPlatform.toLowerCase()),
       ),
-    [plataforms, filter],
+    [platforms, searchPlatform],
   );
 
   return (
     <div className="bg-background h-screen">
       <Helmet title="Plataformas" />
 
-      <Navbar setFilter={setFilter} />
+      <Navbar setSearchPlatform={setSearchPlatform} />
       <main className="flex">
         <Sidebar />
         <div className="mx-[4.5rem] mt-4">
@@ -56,12 +56,12 @@ export function PlataformGroup() {
             </header>
 
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-              {filteredPlataform.map((plataform) => (
+              {filteredPlatform.map((platform) => (
                 <Card
-                  key={plataform.id}
-                  name={plataform.name}
-                  image={plataform.imageUrl}
-                  url={plataform.url}
+                  key={platform.id}
+                  name={platform.name}
+                  image={platform.imageUrl}
+                  url={platform.url}
                 />
               ))}
             </div>

@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,6 +10,7 @@ import secondaryLogoSvg from '../../assets/logo-secondary.svg';
 import spinnerSvg from '../../assets/spinner.svg';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { AuthContext } from '../../contexts/auth/AuthContext';
 import delay from '../../utils/delay';
 
 const schemaSignInForm = z.object({
@@ -19,6 +21,7 @@ const schemaSignInForm = z.object({
 type SignInForm = z.infer<typeof schemaSignInForm>;
 
 export function SignIn() {
+  const { signin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const methods = useForm<SignInForm>({
@@ -39,9 +42,15 @@ export function SignIn() {
   async function handleSignIn({ email, password }: SignInForm) {
     await delay(2000);
 
-    console.log({ email, password });
+    if (email && password) {
+      const isLogged = await signin({ email, password });
 
-    navigate('/plataforms');
+      if (isLogged) {
+        navigate('/platforms');
+      } else {
+        alert('Dados incorretos!');
+      }
+    }
   }
 
   const emailInput = watch('email');

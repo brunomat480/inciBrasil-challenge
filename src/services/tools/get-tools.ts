@@ -1,5 +1,5 @@
-import { Tool } from '../@types/tools/Tools';
-import { api } from '../libs/api';
+import { Tool } from '../../@types/tools/Tools';
+import { api } from '../../lib/api';
 
 export async function getTools() {
   try {

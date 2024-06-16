@@ -8,12 +8,12 @@ import paymentSvg from '../../../../assets/payment.svg';
 import studentSvg from '../../../../assets/student.svg';
 
 interface NavbarProps {
-  setFilter: (value: string) => void;
+  setSearchPlatform: (value: string) => void;
 }
 
-export function Navbar({ setFilter }: NavbarProps) {
+export function Navbar({ setSearchPlatform }: NavbarProps) {
   function handleFilter(event: ChangeEvent<HTMLInputElement>) {
-    setFilter(event.target.value);
+    setSearchPlatform(event.target.value);
   }
 
   return (
