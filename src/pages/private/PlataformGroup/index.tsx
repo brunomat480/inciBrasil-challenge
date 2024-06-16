@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { Platform } from '../../../@types/platforms/Platform';
 import { Tool } from '../../../@types/tools/Tools';
 import { Card } from '../../../components/Card';
+import { AuthContext } from '../../../contexts/auth/AuthContext';
 import { getPlatforms } from '../../../services/plataforms/get-platforms';
 import { getTools } from '../../../services/tools/get-tools';
 import { Navbar } from './components/Navbar';
@@ -13,17 +14,21 @@ export function PlatformGroup() {
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [tools, setTools] = useState<Tool[]>([]);
 
+  const { user } = useContext(AuthContext);
+
   const [searchPlatform, setSearchPlatform] = useState('');
 
   useEffect(() => {
     async function fetch() {
-      const [platformsAll, toolsAll] = await Promise.all([
-        getPlatforms(),
-        getTools(),
-      ]);
+      if (user?.id && user.token) {
+        const [platformsAll, toolsAll] = await Promise.all([
+          getPlatforms(user.id, user.token),
+          getTools(user.id, user.token),
+        ]);
 
-      setPlatforms(platformsAll);
-      setTools(toolsAll);
+        setPlatforms(platformsAll);
+        setTools(toolsAll);
+      }
     }
 
     fetch();

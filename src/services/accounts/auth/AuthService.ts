@@ -1,5 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
 
+import { getUser } from '../get-user';
 import { auth } from './auth';
 
 interface Auth {
@@ -8,22 +9,38 @@ interface Auth {
 }
 
 class AuthService {
+  async validateToken(token: string) {
+    const decodeToken = jwtDecode(token);
+    const userId = decodeToken.sub;
+
+    const userDatas = await getUser(userId, token);
+
+    return {
+      user: {
+        id: userDatas?.id,
+        name: userDatas?.name,
+        email: userDatas?.email,
+        token,
+      },
+    };
+  }
+
   async signin({ email, password }: Auth) {
     const response = await auth({ email, password });
 
-    console.log(response);
     const token = response.token;
     const decodeToken = jwtDecode(token);
     const userId = decodeToken.sub;
 
-    // const userDatas = await getUser(userId);
+    const userDatas = await getUser(userId, token);
 
     return {
       user: {
-        data: response.user,
-        id: userId,
+        id: userDatas?.id,
+        name: userDatas?.name,
+        email: userDatas?.email,
+        token: token,
       },
-      token,
     };
   }
 }

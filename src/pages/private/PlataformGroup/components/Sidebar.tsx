@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import analyticsSvg from '../../../../assets/analytics.svg';
 import arrowSvg from '../../../../assets/arrow.svg';
@@ -12,12 +13,21 @@ import coursesSvg from '../../../../assets/variants/courses.svg';
 import paymentSvg from '../../../../assets/variants/payment.svg';
 import studentsSvg from '../../../../assets/variants/students.svg';
 import whatsPushSvg from '../../../../assets/whats-push.svg';
+import { AuthContext } from '../../../../contexts/auth/AuthContext';
 
 export function Sidebar() {
   const [expandMenu, setExpandMenu] = useState(false);
 
+  const { signout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   function handleExpandMenu() {
     setExpandMenu((state) => !state);
+  }
+
+  function handleLogout() {
+    signout();
+    navigate('/sign-in', { replace: true });
   }
 
   return (
@@ -177,6 +187,7 @@ export function Sidebar() {
 
           <button
             type="button"
+            onClick={handleLogout}
             className="flex items-center gap-2 py-2 mx-[0.125rem] px-2 rounded hover:bg-gray-300/40 cursor-pointer w-full"
           >
             <img src={logoutSvg} alt="" />

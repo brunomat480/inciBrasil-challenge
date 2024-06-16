@@ -1,6 +1,7 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { User } from '../../@types/accounts/User';
+// import { User } from '../../@types/accounts/User';
 import { authService } from '../../services/accounts/auth';
 import { AuthContext } from './AuthContext';
 
@@ -15,12 +16,31 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  // const [token, setToken] = useState('');
+
+  useEffect(() => {
+    async function validateToken() {
+      const storageData = localStorage.getItem('authToken');
+
+      if (storageData) {
+        const data = await authService.validateToken(storageData);
+
+        if (data.user) {
+          setUser(data.user);
+          // setToken(data.user.token);
+        }
+      }
+    }
+
+    validateToken();
+  }, []);
 
   async function signin({ email, password }: AuthDataType) {
     const data = await authService.signin({ email, password });
 
-    if (data.token) {
-      setUser(data.token);
+    if (data.user.token && data.user) {
+      setUser(data.user);
+      addToken(data.user.token);
 
       return true;
     }
@@ -28,10 +48,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return false;
   }
 
-  console.log(user);
+  async function signout() {
+    setUser(null);
+    addToken('');
+  }
+
+  function addToken(token: string) {
+    localStorage.setItem('authToken', token);
+  }
 
   return (
-    <AuthContext.Provider value={{ user, signin }}>
+    <AuthContext.Provider value={{ user, signin, signout }}>
       {children}
     </AuthContext.Provider>
   );

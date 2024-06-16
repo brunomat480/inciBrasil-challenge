@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,6 +21,10 @@ const schemaSignInForm = z.object({
 type SignInForm = z.infer<typeof schemaSignInForm>;
 
 export function SignIn() {
+  const [storageData, setStorageData] = useState(
+    localStorage.getItem('authToken'),
+  );
+
   const { signin } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -46,7 +50,7 @@ export function SignIn() {
       const isLogged = await signin({ email, password });
 
       if (isLogged) {
-        navigate('/platforms');
+        navigate('/platforms', { replace: true });
       } else {
         alert('Dados incorretos!');
       }
@@ -56,6 +60,14 @@ export function SignIn() {
   const emailInput = watch('email');
   const passwordInput = watch('password');
   const isSubmitDesabled = emailInput && passwordInput;
+
+  useEffect(() => {
+    setStorageData(localStorage.getItem('authToken'));
+
+    if (storageData) {
+      navigate('/platforms', { replace: true });
+    }
+  }, []);
 
   return (
     <div className="mx-auto container">

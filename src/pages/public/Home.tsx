@@ -50,9 +50,8 @@ export function Home() {
       <Navbar />
       <div className="min-h-screen grid grid-cols-2 pt-[10.28125rem]">
         <div className="ml-16 mr-4 w-[34rem]">
-          <h1 className="text-5xl leading-snug text-blue-primary font-medium">
-            Preparando Pessoas{' '}
-            <span className="font-semibold">para o Futuro</span>
+          <h1 className="text-[3.5rem] leading-snug text-primary-inci-500 font-medium">
+            Preparando Pessoas <span className="font-bold">para o Futuro</span>
           </h1>
 
           <div className="mt-4">
@@ -70,7 +69,7 @@ export function Home() {
                   <div className="flex flex-1 flex-col">
                     <Input
                       nameField="email"
-                      className="w-full placeholder:text-gray-700 placeholder:font-medium"
+                      className="w-full placeholder:text-gray-600"
                       placeholder="seuemail@gmail.com"
                     />
                   </div>
@@ -79,7 +78,7 @@ export function Home() {
                     <Button
                       type="submit"
                       disabled={isSubmitDesabled || isSubmitting}
-                      className="bg-blue-primary text-white text-sm"
+                      className="bg-primary-inci-600 text-inci-neutral-200 hover:bg-primary-inci-500 text-sm"
                     >
                       Entrar em contato
                     </Button>
@@ -87,11 +86,11 @@ export function Home() {
                 </form>
               </FormProvider>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-6">
                 <img src={rangeSvg} alt="" />
 
-                <div className="flex flex-col mt-6">
-                  <span className="font-semibold text-blue-primary">
+                <div className="flex flex-col ">
+                  <span className="font-semibold text-primary-inci-500">
                     +11,8 mi😯🤯
                   </span>
                   <span className="text-blue-secondary font-medium">
