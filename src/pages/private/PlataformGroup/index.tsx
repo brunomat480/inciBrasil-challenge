@@ -52,10 +52,10 @@ export function PlatformGroup() {
         <div className="mx-[4.5rem] mt-4">
           <section className="pb-6 border-b-[2px] border-gray-300/40">
             <header>
-              <h1 className="font-medium text-blue-primary">
+              <h1 className="font-medium text-primary-inci-500">
                 Nossas Plataformas
               </h1>
-              <small className="text-sm text-gray-400">
+              <small className="text-inci-neutral-700">
                 Escolha o ícone para entrar
               </small>
             </header>
@@ -74,10 +74,10 @@ export function PlatformGroup() {
 
           <section className="mt-6">
             <header>
-              <h1 className="font-medium text-blue-primary ">
+              <h1 className="font-medium text-primary-inci-500">
                 Principais Ferramentas
               </h1>
-              <small className="text-sm text-gray-400">
+              <small className="text-inci-neutral-700">
                 Escolha o ícone para entrar
               </small>
             </header>

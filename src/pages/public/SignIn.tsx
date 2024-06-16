@@ -70,94 +70,127 @@ export function SignIn() {
   }, []);
 
   return (
-    <div className="mx-auto container">
+    <>
       <Helmet title="Entrar" />
 
-      <div className="py-6 flex justify-center border-b-2">
+      <header className="py-6 flex justify-center border-b-2 border-inci-neutral-600">
         <img src={logoSvg} alt="" />
-      </div>
-      {isSubmitting ? (
-        <div className="flex items-center justify-center mt-36">
-          <div className="bg-white py-8 w-[11.5625rem] flex flex-col gap-6 rounded-[10px]">
-            <img src={spinnerSvg} alt="" className="animate-spin mx-auto" />
-            <span className="font-medium text-center">Fazendo login...</span>
-          </div>
-        </div>
-      ) : (
-        <div className="w-[26.5rem] bg-white py-8 px-10 rounded-2xl mx-auto mt-[7.7125rem]">
-          <div className="flex items-center w-full justify-between border-b-gray-300 border-b-[0.5px] pb-6">
-            <div className="justify-between flex flex-col">
-              <span className="font-semibold text-lg w-full">Fazer login</span>
-              <span className="text-gray-400 text-sm">Use sua Conta INCI</span>
+      </header>
+
+      <div className="mx-auto container">
+        {isSubmitting ? (
+          <div className="flex items-center justify-center mt-36">
+            <div className="bg-inci-neutral-0 py-8 w-[11.5625rem] flex flex-col gap-6 rounded-[10px] border-[1px] border-gray-600/15">
+              <img src={spinnerSvg} alt="" className="animate-spin mx-auto" />
+              <span className="font-medium text-center text-inci-neutral-1000">
+                Fazendo login...
+              </span>
             </div>
-            <img src={secondaryLogoSvg} alt="Logo da InciBrasil" />
           </div>
-
-          <FormProvider {...methods}>
-            <form
-              onSubmit={handleSubmit(handleSignIn)}
-              noValidate
-              className="mt-8"
-            >
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col">
-                  <label htmlFor="email">E-mail ou telefone</label>
-                  <Input
-                    nameField="email"
-                    type="email"
-                    placeholder="email@gmail.com"
-                    id="email"
-                  />
+        ) : (
+          <>
+            <div className="w-[26.5rem] bg-inci-neutral-0 py-8 px-10 rounded-2xl mx-auto mt-[7.7125rem] border-[1px] border-gray-600/15">
+              <div className="flex items-center w-full justify-between border-b-gray-300 border-b-[0.5px] pb-6">
+                <div className="justify-between flex flex-col">
+                  <span className="font-semibold text-lg text-inci-neutral-1100 w-full">
+                    Fazer login
+                  </span>
+                  <span className="text-gray-400 text-sm">
+                    Use sua Conta INCI
+                  </span>
                 </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="">Senha</label>
-                  <Input
-                    nameField="password"
-                    type="password"
-                    placeholder="*********"
-                    id="password"
-                  />
-                </div>
+                <img src={secondaryLogoSvg} alt="Logo da InciBrasil" />
               </div>
-              <a
-                href=""
-                className="text-xs font-medium text-gray-700 mt-2 hover:underline"
-              >
-                Esqueci a senha
-              </a>
 
-              <p className="font-medium text-sm mt-12">
-                Não está no seu computador? Use o modo visitante para fazer o
-                login com privacidade. <br />
-                <a
-                  href=""
-                  className="underline text-blue-500 hover:text-blue-primary"
+              <FormProvider {...methods}>
+                <form
+                  onSubmit={handleSubmit(handleSignIn)}
+                  noValidate
+                  className="mt-8"
                 >
-                  Saiba mais
-                </a>
-              </p>
+                  <div className="flex flex-col gap-8">
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="email"
+                        className="-mb-2.5 ml-4 z-10 text-inci-neutral-900 text-sm font-bold bg-inci-neutral-0 w-32 text-center"
+                      >
+                        E-mail ou telefone
+                      </label>
+                      <Input
+                        nameField="email"
+                        type="email"
+                        placeholder="email@gmail.com"
+                        id="email"
+                      />
+                    </div>
 
-              <div className="mt-2">
-                <Button
-                  disabled={!isSubmitDesabled || isSubmitting}
-                  className="bg-blue-primary text-white text-sm"
-                >
-                  Entrar
-                </Button>
-              </div>
-              <Link
-                to="/"
-                className="flex justify-center text-blue-primary font-semibold text-sm mt-[0.6475rem]"
-              >
-                Criar conta
-              </Link>
-            </form>
-          </FormProvider>
-        </div>
-      )}
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor=""
+                        className="-mb-2.5 ml-4 z-10 text-inci-neutral-900 text-sm font-bold bg-inci-neutral-0 w-14 text-center"
+                      >
+                        Senha
+                      </label>
+                      <Input
+                        nameField="password"
+                        type="password"
+                        placeholder="*********"
+                        id="password"
+                      />
+                    </div>
+                  </div>
+                  <a
+                    href=""
+                    className="text-xs font-medium text-inci-neutral-900 mt-2 hover:underline"
+                  >
+                    Esqueci a senha
+                  </a>
+
+                  <p className="font-medium text-sm mt-12 text-inci-neutral-1000">
+                    Não está no seu computador? Use o modo visitante para fazer
+                    o login com privacidade. <br />
+                    <a
+                      href=""
+                      className="underline text-inci-blue-400 hover:text-blue-primary"
+                    >
+                      Saiba mais
+                    </a>
+                  </p>
+
+                  <div className="mt-2">
+                    <Button
+                      disabled={!isSubmitDesabled || isSubmitting}
+                      className="bg-primary-inci-600 text-inci-neutral-200 hover:brightness-125"
+                    >
+                      Entrar
+                    </Button>
+                  </div>
+                  <Link
+                    to="/"
+                    className="flex justify-center items-center hover:underline text-primary-inci-500 font-semibold text-sm mt-[0.6475rem]"
+                  >
+                    Criar conta
+                  </Link>
+                </form>
+              </FormProvider>
+            </div>
+
+            <ul className="flex items-center justify-center gap-4 text-sm font-medium text-inci-neutral-900 mt-6">
+              <li>
+                <a href="#">Ajuda</a>
+              </li>
+              <li>
+                <a href="#">Privacidade</a>
+              </li>
+              <li>
+                <a href="#">Termos</a>
+              </li>
+            </ul>
+          </>
+        )}
+      </div>
 
       <div className="flex flex-col justify-center items-center pt-[5.74625rem]"></div>
-    </div>
+    </>
   );
 }

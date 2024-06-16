@@ -78,7 +78,7 @@ export function Home() {
                     <Button
                       type="submit"
                       disabled={isSubmitDesabled || isSubmitting}
-                      className="bg-primary-inci-600 text-inci-neutral-200 hover:bg-primary-inci-500 text-sm"
+                      className="bg-primary-inci-600 text-inci-neutral-200 hover:brightness-125 text-sm"
                     >
                       Entrar em contato
                     </Button>
@@ -90,12 +90,10 @@ export function Home() {
                 <img src={rangeSvg} alt="" />
 
                 <div className="flex flex-col ">
-                  <span className="font-semibold text-primary-inci-500">
+                  <span className="font-bold text-primary-inci-500">
                     +11,8 mi😯🤯
                   </span>
-                  <span className="text-blue-secondary font-medium">
-                    de Alcance
-                  </span>
+                  <span className="text-inci-blue-500">de Alcance</span>
                 </div>
               </div>
             </div>

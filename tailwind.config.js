@@ -51,11 +51,10 @@ export default {
         'inci-blue-800': '#1a2c83',
         'inci-blue-900': '#142264',
 
-        // background: '#F8F9FA',
+        background: '#F8F9FA',
       },
 
       fontFamily: {
-        // sans: ['Montserrat', 'sans-serif'],
         sans: ['Rethink Sans', 'sans-serif'],
       },
 

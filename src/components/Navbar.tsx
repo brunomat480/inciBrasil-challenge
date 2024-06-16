@@ -26,7 +26,7 @@ export function Navbar() {
 
       <div className="flex items-center gap-2">
         <div>
-          <Button className="bg-primary-inci-600 text-inci-neutral-200 hover:bg-primary-inci-500">
+          <Button className="bg-primary-inci-600 text-inci-neutral-200 hover:brightness-125">
             Trabalhe conosco
           </Button>
         </div>
@@ -34,7 +34,7 @@ export function Navbar() {
           <Link to="/sign-in">
             <Button
               type="button"
-              className="bg-inci-secondary-400 text-inci-neutral-900 hover:bg hover:bg-inci-secondary-300"
+              className="bg-inci-secondary-400 text-inci-neutral-900 hover:bg hover:brightness-125"
             >
               Entrar
             </Button>
