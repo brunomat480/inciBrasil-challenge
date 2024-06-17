@@ -51,19 +51,13 @@ Execute as migrações:
 ```bash
 npm run db:migrate
 ```
-
-Execute o seed:
-```bash
-npm run db:seed
-```
-com isso, dois usuários serão adicionados, use esses dados para efetuar o login:
+o arquivo seed.ts é executado criando dois usuários, use esses dados para efetuar o login:
 ##
 email ou telefone: bruno@gmail.com | 1234567890 <br/>
 senha: 123456
 ##
 email ou telefone: jose@gmail.com | 0987654321 <br/>
 senha: 123456
-##
 
 Inicie a api:
 ```bash
