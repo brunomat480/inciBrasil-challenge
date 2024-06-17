@@ -44,12 +44,12 @@ npm i
 
 Execute as migrações:
 ```bash
-db:migrate
+npm run db:migrate
 ```
 
 Execute o seed:
 ```bash
-db:seed
+npm run db:seed
 ```
 com isso, dois usuários serão adicionados, use esses dados para efetuar o login:
 ##
@@ -70,7 +70,7 @@ npm run dev
 #### Adicionais
 Interface de banco dados:
 ```bash
-db:studio
+npm run db:studio
 ```
 
 Você pode acesse o swagger ao iniciar a api:
