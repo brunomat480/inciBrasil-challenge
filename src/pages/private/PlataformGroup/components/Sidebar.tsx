@@ -33,7 +33,7 @@ export function Sidebar() {
   return (
     <aside
       data-expand-menu={expandMenu}
-      className="bg-white py-6 w-20 px-[0.875rem] relative data-[expand-menu=true]:w-[22rem] transition-all duration-500"
+      className="bg-white py-6 max-w-20 min-w-0 px-[0.875rem] relative data-[expand-menu=true]:min-w-[13.5rem] transition-all duration-500"
     >
       <button
         type="button"
