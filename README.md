@@ -65,4 +65,4 @@ db:studio
 ```
 
 Acesse o swagger ao iniciar a api:
-<a href="https://github.com/brunomat480/inciBrasil-challenge-api">https://github.com/brunomat480/inciBrasil-challenge-api</a>
+<a href="http://localhost:3333/api-docs/">http://localhost:3333/api-docs/</a>
