@@ -20,7 +20,7 @@ npm run dev
 ##
 
 #### API
-Link da api:
+Repositório da api:
 <a href="https://github.com/brunomat480/inciBrasil-challenge-api">inciBrasil-challenge-api</a>
 
 Clone o repositório:
