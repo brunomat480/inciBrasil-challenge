@@ -72,5 +72,5 @@ Interface de banco dados:
 npm run db:studio
 ```
 
-Você pode acesse o swagger ao iniciar a api:
+Você pode acessar o swagger ao iniciar a api:
 <a href="http://localhost:3333/api-docs/">http://localhost:3333/api-docs/</a>
