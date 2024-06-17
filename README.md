@@ -64,5 +64,5 @@ Interface de banco dados:
 db:studio
 ```
 
-Acesse o swagger ao iniciar a api:
+Você pode acesse o swagger ao iniciar a api:
 <a href="http://localhost:3333/api-docs/">http://localhost:3333/api-docs/</a>
