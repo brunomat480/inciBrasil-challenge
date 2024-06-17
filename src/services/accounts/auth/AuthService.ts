@@ -4,7 +4,7 @@ import { getUser } from '../get-user';
 import { auth } from './auth';
 
 interface Auth {
-  email: string;
+  identifier: string;
   password: string;
 }
 
@@ -25,8 +25,8 @@ class AuthService {
     };
   }
 
-  async signin({ email, password }: Auth) {
-    const response = await auth({ email, password });
+  async signin({ identifier, password }: Auth) {
+    const response = await auth({ identifier, password });
 
     const token = response.token;
     const decodeToken = jwtDecode(token);

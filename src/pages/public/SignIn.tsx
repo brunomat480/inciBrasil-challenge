@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import logoSvg from '../../assets/logo.svg';
@@ -14,7 +15,9 @@ import { AuthContext } from '../../contexts/auth/AuthContext';
 import delay from '../../utils/delay';
 
 const schemaSignInForm = z.object({
-  email: z.string().min(1, 'Informe o e-mail').email('E-mail inválido'),
+  identifier: z.string().refine((value) => {
+    return z.string().email().safeParse(value).success || /^\d+$/.test(value);
+  }, 'E-mail ou número de telefone inválido'),
   password: z.string().min(1, 'Informe a senha'),
 });
 
@@ -30,7 +33,7 @@ export function SignIn() {
 
   const methods = useForm<SignInForm>({
     defaultValues: {
-      email: '',
+      identifier: '',
       password: '',
     },
     resolver: zodResolver(schemaSignInForm),
@@ -43,21 +46,23 @@ export function SignIn() {
     formState: { isSubmitting },
   } = methods;
 
-  async function handleSignIn({ email, password }: SignInForm) {
+  async function handleSignIn({ identifier, password }: SignInForm) {
     await delay(2000);
 
-    if (email && password) {
-      const isLogged = await signin({ email, password });
+    if (identifier && password) {
+      try {
+        const isLogged = await signin({ identifier, password });
 
-      if (isLogged) {
-        navigate('/platforms', { replace: true });
-      } else {
-        alert('Dados incorretos!');
+        if (isLogged) {
+          navigate('/platforms', { replace: true });
+        }
+      } catch {
+        toast.error('Usuário ou senha incorretos');
       }
     }
   }
 
-  const emailInput = watch('email');
+  const emailInput = watch('identifier');
   const passwordInput = watch('password');
   const isSubmitDesabled = emailInput && passwordInput;
 
@@ -116,17 +121,12 @@ export function SignIn() {
                       >
                         E-mail ou telefone
                       </label>
-                      <Input
-                        nameField="email"
-                        type="email"
-                        placeholder="email@gmail.com"
-                        id="email"
-                      />
+                      <Input nameField="identifier" type="text" id="email" />
                     </div>
 
                     <div className="flex flex-col">
                       <label
-                        htmlFor=""
+                        htmlFor="password"
                         className="-mb-2.5 ml-4 z-10 text-inci-neutral-900 text-sm font-bold bg-inci-neutral-0 w-14 text-center"
                       >
                         Senha
@@ -134,7 +134,6 @@ export function SignIn() {
                       <Input
                         nameField="password"
                         type="password"
-                        placeholder="*********"
                         id="password"
                       />
                     </div>

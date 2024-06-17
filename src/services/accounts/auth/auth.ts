@@ -1,14 +1,14 @@
 import { api } from '../../../lib/api';
 
 interface Auth {
-  email: string;
+  identifier: string;
   password: string;
 }
 
-export async function auth({ email, password }: Auth) {
+export async function auth({ identifier, password }: Auth) {
   try {
     const { data } = await api.post('/sessions', {
-      email,
+      identifier,
       password,
     });
 
