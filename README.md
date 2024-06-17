@@ -5,7 +5,11 @@
 #### Web
 Clone o repositório:
 ```bash
-git clone https://github.com/brunojosematias/inciBrasil-challenge.git
+git clone https://github.com/brunomat480/inciBrasil-challenge.git
+```
+ou
+```bash
+git clone git@github.com:brunomat480/inciBrasil-challenge.git
 ```
 
 Instale as dependências:
@@ -26,6 +30,11 @@ Repositório da api:
 Clone o repositório:
 ```bash
 git clone https://github.com/brunomat480/inciBrasil-challenge-api.git
+```
+ou
+Clone o repositório:
+```bash
+git clone git@github.com:brunomat480/inciBrasil-challenge-api.git
 ```
 
 Instale as dependências:
