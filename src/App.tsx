@@ -10,7 +10,7 @@ export function App() {
     <BrowserRouter>
       <HelmetProvider>
         <AuthProvider>
-          <Toaster richColors />
+          <Toaster richColors position="top-right" />
           <Helmet titleTemplate="%s | Inci Brasil" />
           <Router />
         </AuthProvider>

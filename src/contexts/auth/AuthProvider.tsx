@@ -6,7 +6,7 @@ import { authService } from '../../services/accounts/auth';
 import { AuthContext } from './AuthContext';
 
 interface AuthDataType {
-  email: string;
+  identifier: string;
   password: string;
 }
 
@@ -35,8 +35,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     validateToken();
   }, []);
 
-  async function signin({ email, password }: AuthDataType) {
-    const data = await authService.signin({ email, password });
+  async function signin({ identifier, password }: AuthDataType) {
+    const data = await authService.signin({ identifier, password });
 
     if (data.user.token && data.user) {
       setUser(data.user);
