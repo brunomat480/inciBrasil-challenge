@@ -42,6 +42,11 @@ Instale as dependências:
 npm i
 ```
 
+Crie um arquivo chamado .env na raiz do projeto e adicione a linha abaixo:
+```bash
+DATABASE_URL="file:./dev.db"
+```
+
 Execute as migrações:
 ```bash
 npm run db:migrate
