@@ -42,7 +42,7 @@ Execute o seed:
 ```bash
 db:seed
 ```
-com isso dois usuários serão adicionados, use esses dados para efetuar o login:
+com isso, dois usuários serão adicionados, use esses dados para efetuar o login:
 ##
 email ou telefone: bruno@gmail.com | 1234567890 <br/>
 senha: 123456
